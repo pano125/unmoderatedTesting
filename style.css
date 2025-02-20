@@ -1,0 +1,80 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 0 24px 24px 24px;
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #222;
+}
+
+
+.hint-button {
+    background: none;
+    border: none;
+    color: #757575;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.hint-button:hover {
+    color: #222;
+}
+
+textarea, input[type="url"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #222;
+    resize: none; /* Запрет ручного изменения размера */
+}
+
+textarea {
+    min-height: 120px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    background-color: #222;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #555555;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}

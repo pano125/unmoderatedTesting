@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма ввода</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Создание теста</h1>
+        <form>
+            <div class="form-group">
+                <label for="text-input">Задание, не более 300 символов</label>
+                <textarea id="text-input" name="text-input" maxlength="300"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="prototype-link">Embed-ссылка на кликабельный прототип
+                    <button type="button" class="hint-button" onclick="showHint('prototype')">Где ее взять</button>
+                </label>
+                <input type="url" id="prototype-link" name="prototype-link" placeholder="<iframe style=...">
+            </div>
+            <div class="form-group">
+                <label for="other-site-link">Ссылка на форму для сбора ОС
+                    <button type="button" class="hint-button" onclick="showHint('other')">Где ее взять</button>
+                </label>
+                <input type="url" id="other-site-link" name="other-site-link">
+            </div>
+            <button type="submit">Опубликовать тест</button>
+        </form>
+    </div>
+
+    <script>
+        function autoResizeTextarea(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = textarea.scrollHeight + 'px';
+        }
+
+        const textarea = document.getElementById('text-input');
+        textarea.addEventListener('input', () => autoResizeTextarea(textarea));
+        textarea.addEventListener('focus', () => autoResizeTextarea(textarea));
+        textarea.addEventListener('blur', () => autoResizeTextarea(textarea));
+
+        // Инициализация высоты при загрузке страницы
+        window.addEventListener('load', () => autoResizeTextarea(textarea));
+
+        function showHint(type) {
+            let hintMessage;
+            if (type === 'prototype') {
+                hintMessage = 'Вставьте сюда embed-ссылку на ваш прототип. Например: <iframe src="https://example.com" width="600" height="400"></iframe>';
+            } else if (type === 'other') {
+                hintMessage = 'Вставьте сюда ссылку на форму для сбора ОС. Например: https://example.com/form';
+            }
+
+            alert(hintMessage);
+        }
+    </script>
+</body>
+</html>
