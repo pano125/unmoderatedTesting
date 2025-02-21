@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестирование</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ваше задание</h1>
+        <p>{{ task }}</p>
+
+        <iframe src="{{ figmaUrl }}" class="figma-frame"></iframe>
+
+        <p>Кликов: <span id="clickCount">0</span></p>
+        <p>Время: <span id="timeElapsed">0</span> сек</p>
+
+        <button onclick="finishTest()">Завершить тест</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        let startTime = Date.now();
+        
+        document.querySelector(".figma-frame").addEventListener("click", function() {
+            clickCount++;
+            document.getElementById("clickCount").textContent = clickCount;
+        });
+
+        setInterval(() => {
+            let elapsed = Math.floor((Date.now() - startTime) / 1000);
+            document.getElementById("timeElapsed").textContent = elapsed;
+        }, 1000);
+
+        function finishTest() {
+            alert("Тест завершён! Ваши данные записаны.");
+        }
+    </script>
+</body>
+</html>
